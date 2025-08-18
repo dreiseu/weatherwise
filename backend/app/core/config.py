@@ -7,7 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-env_path = Path(__file__).parent.parent.parent / ".env"
+env_path = Path(__file__).parent.parent.parent.parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
 class Settings:
@@ -17,7 +17,7 @@ class Settings:
     OPENWEATHER_API_KEY: str = os.getenv("OPENWEATHER_API_KEY", "")
     
     # Database
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/weatherwise")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "")
     
     # Application
     DEBUG: bool = os.getenv("DEBUG", "False").lower() == "true"

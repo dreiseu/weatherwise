@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "2025-08-17T07:54:43.814316+00:00",
+    "total_requests": 3,
+    "successful_requests": 3,
+    "failed_requests": 0,
+    "validation_failures": 0,
+    "average_response_time": 2.4319023291269937,
+    "locations_processed": [
+      "Cebu,PH",
+      "Manila,PH",
+      "Davao,PH"
+    ],
+    "data_quality_score": 100.0
+  },
+  {
+    "timestamp": "2025-08-17T07:59:40.451120+00:00",
+    "total_requests": 3,
+    "successful_requests": 3,
+    "failed_requests": 0,
+    "validation_failures": 0,
+    "average_response_time": 0.09278210004170735,
+    "locations_processed": [
+      "Davao,PH",
+      "Cebu,PH",
+      "Manila,PH"
+    ],
+    "data_quality_score": 100.0
+  },
+  {
+    "timestamp": "2025-08-17T08:08:03.910685+00:00",
+    "total_requests": 3,
+    "successful_requests": 3,
+    "failed_requests": 0,
+    "validation_failures": 0,
+    "average_response_time": 0.09014471371968587,
+    "locations_processed": [
+      "Davao,PH",
+      "Manila,PH",
+      "Cebu,PH"
+    ],
+    "data_quality_score": 100.0
+  },
+  {
+    "timestamp": "2025-08-17T08:24:51.067854+00:00",
+    "total_requests": 3,
+    "successful_requests": 3,
+    "failed_requests": 0,
+    "validation_failures": 0,
+    "average_response_time": 0.0913392702738444,
+    "locations_processed": [
+      "Manila,PH",
+      "Cebu,PH",
+      "Davao,PH"
+    ],
+    "data_quality_score": 100.0
+  }
+]

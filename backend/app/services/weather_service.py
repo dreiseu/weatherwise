@@ -48,7 +48,11 @@ class OpenWeatherService:
         Args:
             api_key: OpenWeather API key. If None, reads from settings.
         """
-        self.api_key = api_key or settings.OPENWEATHER_API_KEY
+        if api_key is not None:
+            self.api_key = api_key
+        else:
+            self.api_key = os.getenv('OPENWEATHER_API_KEY')
+        
         if not self.api_key:
             raise WeatherAPIError("OpenWeather API key not provided")
         
