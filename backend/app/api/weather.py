@@ -890,3 +890,52 @@ async def log_analysis_completion(location: str, analysis_types: List[str], reco
         f"Analysis completed for {location}: "
         f"types={analysis_types}, recommendations={recommendations_count}"
     )
+
+@router.post("/rag/analyze")
+async def rag_weather_analysis(
+    location: str,
+    query: str,
+    db: Session = Depends(get_db)
+):
+    """Get AI-powered weather analysis using RAG system."""
+    
+    try:
+        from ..services.rag_service import RAGService
+        
+        rag_service = RAGService()
+        
+        # Get current weather data for the location
+        weather_data = db.query(CurrentWeather).filter(
+            CurrentWeather.location == location
+        ).order_by(desc(CurrentWeather.timestamp)).first()
+        
+        if not weather_data:
+            raise HTTPException(status_code=404, detail=f"No weather data found for {location}")
+        
+        # Convert to dict for RAG analysis
+        weather_dict = {
+            "location": weather_data.location,
+            "temperature": weather_data.temperature,
+            "humidity": weather_data.humidity,
+            "wind_speed": weather_data.wind_speed,
+            "pressure": weather_data.pressure,
+            "weather_condition": weather_data.weather_condition
+        }
+        
+        # Generate RAG analysis
+        result = rag_service.generate_weather_analysis(weather_dict, query)
+        
+        return {
+            "status": "success",
+            "location": location,
+            "query": query,
+            "weather_conditions": weather_dict,
+            "knowledge_sources_found": result["knowledge_sources"],
+            "relevant_knowledge": result["relevant_knowledge"],
+            "ai_analysis": result["analysis"],
+            "generated_at": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"RAG analysis failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
