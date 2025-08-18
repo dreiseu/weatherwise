@@ -102,5 +102,29 @@
     "warnings_count": 0,
     "errors_count": 0,
     "data_completeness": 100.0
+  },
+  {
+    "location": "Manila,PH",
+    "timestamp": "2025-08-18T12:59:27.716199+00:00",
+    "validation_passed": true,
+    "warnings_count": 0,
+    "errors_count": 0,
+    "data_completeness": 100.0
+  },
+  {
+    "location": "Cebu,PH",
+    "timestamp": "2025-08-18T12:59:27.952878+00:00",
+    "validation_passed": true,
+    "warnings_count": 0,
+    "errors_count": 0,
+    "data_completeness": 100.0
+  },
+  {
+    "location": "Davao,PH",
+    "timestamp": "2025-08-18T12:59:28.189878+00:00",
+    "validation_passed": true,
+    "warnings_count": 0,
+    "errors_count": 0,
+    "data_completeness": 100.0
   }
 ]
