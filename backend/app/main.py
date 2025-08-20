@@ -16,7 +16,7 @@ from pathlib import Path
 backend_dir = Path(__file__).parent.parent
 sys.path.insert(0, str(backend_dir))
 
-from app.api import weather, alerts
+from app.api import weather, alerts, agents
 from app.core.database import get_db, create_tables
 
 app = FastAPI(
@@ -39,7 +39,7 @@ app.add_middleware(
 # Include API routes
 app.include_router(weather.router, prefix="/api/v1/weather", tags=["weather"])
 app.include_router(alerts.router, prefix="/api/v1/alerts", tags=["alerts"])
-
+app.include_router(agents.router, prefix="/api/v1/agents", tags=["agents"])
 
 @app.on_event("startup")
 async def startup_event():
